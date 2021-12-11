@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Button, TextInput,KeyboardAvoidingView } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity, ImageBackground} from 'react-native';
 import { styles } from './Style';
+
+
+//adicionar fundo a tela de login
 
 export default function Login({ navigation }) {
 
@@ -11,14 +14,14 @@ export default function Login({ navigation }) {
         { nome: 'Viny', senha: 'banana', id: 3 },
         { nome: 'jonh', senha: 'pulp', id: 4 },
         { nome: 'travolta', senha: 'fiction', id: 5 },
-        { nome: 'admim', senha: 'admin', id: 6 }
+        { nome: 'admim', senha: 'admin', id: 6 },
+        { nome: 'pedro', senha: 'pedro', id: 7}
     ]
     )
-    
     const [logPassword, setLogPassword] = useState(null);
     const [logUser, setLogUser] = useState(null);
-    const [loged, setloged] = useState(false);
-  
+    const [loged, setloged] = useState(false)
+
     const handlePassword = (text) => {
         setLogPassword(text);
     }
@@ -35,53 +38,51 @@ export default function Login({ navigation }) {
         mockLogin.map((user) => {
                 if (username == user.nome && password == user.senha) {
                     setLogT()
-                    navigation.navigate("Home",{usuario:user.nome})
-                    console.log("senha correta, usuario:", user.nome
-                    );
+                    console.log("senha correta");
+                    navigation.navigate("HomeTab")
                 } else {
                    
                 };
             })
         
     }
-    // useEffect(()=>{
-    //     console.log(userLoged)
-    // },[userLoged])
 
 
     return (
-        
+       
         <View style={styles.container}>
+            <ImageBackground source={{ uri: 'https://i.pinimg.com/564x/0e/c1/dc/0ec1dcc9c5dda39fd76d62fc694dc6a0.jpg'}} style={styles.fundo}>
+                <View style={styles.box}>
+                    <Text style={styles.titulo}>Login</Text>
+                    <TextInput
+                        style = {styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Nome"
+                        placeholderTextColor="black"
+                        autoCapitalize="none"
+                        onChangeText = {handleUser}
+                        />
 
-            <Text>Login</Text>
+                    <TextInput
+                        style = {styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Senha"
+                        placeholderTextColor="black"
+                        autoCapitalize="none"
+                        onChangeText = {handlePassword}
+                    />
 
-            <TextInput
-                style = {styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="Username"
-                placeholderTextColor="#9a73ef"
-                autoCapitalize="none"
-                onChangeText = {handleUser}
-                />
+                    
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={
+                        ()=>{
+                            Login(logUser, logPassword)}}>
 
-            <TextInput
-                style = {styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="Password"
-                placeholderTextColor="#9a73ef"
-                autoCapitalize="none"
-                onChangeText = {handlePassword}
-            />
-
-            <Button
-                title = "login"
-                onPress={()=>{
-                    Login(logUser, logPassword)}}
-            />
-
-            <Button title="ir pra home" onPress={() => {
-                navigation.navigate("Home");
-            }} />
+                        <Text style={styles.tituloButton}>Login</Text>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
     
     )

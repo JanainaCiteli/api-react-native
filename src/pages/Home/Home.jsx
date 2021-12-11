@@ -1,5 +1,5 @@
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Text, View, Button, ScrollView, Image } from 'react-native';
 import { styles } from './Style';
 import Login from '../Login/Login';
@@ -19,18 +19,26 @@ const mockProdutos = ([
 
 export default function Home({ navigation,route }) {
 
-    const {usuario} = route.params
+    
+    //const {usuario} = route.params
+    const [usuario, setUsuario] = useState()
    
+    //const bemVindo = "Bem vindo Visitante!!" 
+    
+
     const verify = ()=>{
-        if(usuario != undefined){
-            return usuario
-        }else
+        if(route.params != undefined){
+            return setUsuario(route.params)
+        }else{
+            return ("Visitante")
+        }
     }
+
     
     return (
         <View style={styles.container}>
            
-            <Text>Bem vindo {usuario} !!!</Text>
+            <Text>Bem vindo {verify()} !!!</Text>
            
             <ScrollView>
                 {mockProdutos.map((item,index) => {
