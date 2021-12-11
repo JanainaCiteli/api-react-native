@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Text, View, Button, TextInput,KeyboardAvoidingView } from 'react-native';
+import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity} from 'react-native';
 import { styles } from './Style';
+
+
+const fundo='./assets/fundojogo.jpg'
 
 export default function Login({ navigation }) {
 
@@ -35,7 +38,7 @@ export default function Login({ navigation }) {
                 if (username == user.nome && password == user.senha) {
                     setLogT()
                     console.log("senha correta");
-                    navigation.navigate("Home")
+                    navigation.navigate("HomeTab")
                 } else {
                    
                 };
@@ -47,36 +50,36 @@ export default function Login({ navigation }) {
     return (
        
         <View style={styles.container}>
+            <View style={styles.box}>
+                <Text style={styles.titulo}>Login</Text>
+                <TextInput
+                    style = {styles.input}
+                    underlineColorAndroid="transparent"
+                    placeholder="Nome"
+                    placeholderTextColor="black"
+                    autoCapitalize="none"
+                    onChangeText = {handleUser}
+                    />
 
-            <Text>Login</Text>
-
-            <TextInput
-                style = {styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="Username"
-                placeholderTextColor="#9a73ef"
-                autoCapitalize="none"
-                onChangeText = {handleUser}
+                <TextInput
+                    style = {styles.input}
+                    underlineColorAndroid="transparent"
+                    placeholder="Senha"
+                    placeholderTextColor="black"
+                    autoCapitalize="none"
+                    onChangeText = {handlePassword}
                 />
 
-            <TextInput
-                style = {styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="Password"
-                placeholderTextColor="#9a73ef"
-                autoCapitalize="none"
-                onChangeText = {handlePassword}
-            />
+                
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={
+                    ()=>{
+                        Login(logUser, logPassword)}}>
 
-            <Button
-                title = "login"
-                onPress={()=>{
-                    Login(logUser, logPassword)}}
-            />
-
-            <Button title="ir pra home" onPress={() => {
-                navigation.navigate("Home");
-            }} />
+                    <Text style={styles.tituloButton}>Login</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     
     )
