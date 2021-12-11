@@ -3,7 +3,7 @@ import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity} from 'rea
 import { styles } from './Style';
 
 
-const fundo='./assets/fundojogo.jpg'
+//adicionar fundo a tela de login
 
 export default function Login({ navigation }) {
 
