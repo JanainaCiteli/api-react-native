@@ -21,11 +21,17 @@ export default function Home({ navigation,route }) {
 
     const {usuario} = route.params
    
-
+    const verify = ()=>{
+        if(usuario != undefined){
+            return usuario
+        }else
+    }
     
     return (
         <View style={styles.container}>
-            <Text>{usuario}</Text>
+           
+            <Text>Bem vindo {usuario} !!!</Text>
+           
             <ScrollView>
                 {mockProdutos.map((item,index) => {
                     return (
