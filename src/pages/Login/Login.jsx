@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity} from 'react-native';
+import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity, ImageBackground} from 'react-native';
 import { styles } from './Style';
 
 
@@ -14,7 +14,8 @@ export default function Login({ navigation }) {
         { nome: 'Viny', senha: 'banana', id: 3 },
         { nome: 'jonh', senha: 'pulp', id: 4 },
         { nome: 'travolta', senha: 'fiction', id: 5 },
-        { nome: 'admim', senha: 'admin', id: 6 }
+        { nome: 'admim', senha: 'admin', id: 6 },
+        { nome: 'pedro', senha: 'pedro', id: 7}
     ]
     )
     const [logPassword, setLogPassword] = useState(null);
@@ -50,36 +51,38 @@ export default function Login({ navigation }) {
     return (
        
         <View style={styles.container}>
-            <View style={styles.box}>
-                <Text style={styles.titulo}>Login</Text>
-                <TextInput
-                    style = {styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="Nome"
-                    placeholderTextColor="black"
-                    autoCapitalize="none"
-                    onChangeText = {handleUser}
+            <ImageBackground source={{ uri: 'https://i.pinimg.com/564x/0e/c1/dc/0ec1dcc9c5dda39fd76d62fc694dc6a0.jpg'}} style={styles.fundo}>
+                <View style={styles.box}>
+                    <Text style={styles.titulo}>Login</Text>
+                    <TextInput
+                        style = {styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Nome"
+                        placeholderTextColor="black"
+                        autoCapitalize="none"
+                        onChangeText = {handleUser}
+                        />
+
+                    <TextInput
+                        style = {styles.input}
+                        underlineColorAndroid="transparent"
+                        placeholder="Senha"
+                        placeholderTextColor="black"
+                        autoCapitalize="none"
+                        onChangeText = {handlePassword}
                     />
 
-                <TextInput
-                    style = {styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="Senha"
-                    placeholderTextColor="black"
-                    autoCapitalize="none"
-                    onChangeText = {handlePassword}
-                />
+                    
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={
+                        ()=>{
+                            Login(logUser, logPassword)}}>
 
-                
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={
-                    ()=>{
-                        Login(logUser, logPassword)}}>
-
-                    <Text style={styles.tituloButton}>Login</Text>
-                </TouchableOpacity>
-            </View>
+                        <Text style={styles.tituloButton}>Login</Text>
+                    </TouchableOpacity>
+                </View>
+            </ImageBackground>
         </View>
     
     )

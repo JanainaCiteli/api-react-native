@@ -46,6 +46,14 @@ export const styles = StyleSheet.create({
       fontSize: 15,
       color: '#b3e0ff',
       fontWeight: 'bold',
+    },
+    fundo:{
+      flex:1,
+      resizeMode: 'cover',
+      width:'100%',
+      height:'100%',
+      alignItems:'center',
+      justifyContent:'center'
     }
     
 
