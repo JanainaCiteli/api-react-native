@@ -1,13 +1,20 @@
 
 import React from 'react';
-import { Text, View,Button } from 'react-native';
+import { Text, View, Image, Button } from 'react-native';
 import { styles } from './Style';
+import logo from '../../../assets/logo.jpg';
 
-export default function Home({ navigation }) {
+export default function Home() {
     return (
         <View style={styles.container}>
-            <Text>Home</Text>
-            
+            <View style={styles.header}>
+              <Image source={logo} style={styles.logo} />         
+            </View>                  
         </View>
+
+
+
+
+
     )
 }

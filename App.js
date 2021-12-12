@@ -6,10 +6,12 @@ import Login from './src/pages/Login/Login';
 import Categoria from './src/pages/Categoria/Categoria';
 import Carrinho from './src/pages/Carrinho/Carrinho';
 import Favoritos from './src/pages/Favoritos/Favoritos';
+import Logout from './src/pages/Logout/Logout';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
   const Tab = createBottomTabNavigator();
  
@@ -34,8 +36,9 @@ export default function App() {
         iconName = focused ? 'cart-outline' : 'cart-outline';
     }else if (route.name === 'login') {
       iconName = focused ? 'person-outline' : 'person-outline';
-  }
-
+  }else if (route.name === 'Logout') {
+    iconName = focused ? 'log-out-outline' : 'log-out-outline';
+  }  
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -45,14 +48,13 @@ export default function App() {
           paddingBottom: 5,
         },
       })}
-    >
-
-  
+    >  
           
-          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Home" options={{headerShown: false}} component={Home} />
           <Tab.Screen name="Categoria" component={Categoria} />
           <Tab.Screen name="Favoritos" component={Favoritos} />          
-          <Tab.Screen name="Carrinho" component={Carrinho} /> 
+          <Tab.Screen name="Carrinho" component={Carrinho} />
+          <Tab.Screen name="Logout" component={Logout} />   
          
         </Tab.Navigator>
         
