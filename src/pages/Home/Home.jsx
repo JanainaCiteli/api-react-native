@@ -5,6 +5,7 @@ import  { useNavigation } from '@react-navigation/native';
 import Shoes from '../../component/Shoes';
 
 
+
 export default function Home() {
  const navigation = useNavigation();
 
@@ -113,3 +114,19 @@ const styles = StyleSheet.create({
 
 /* <Button title="DETALHE" onPress={()=> navigation.navigate("Detalhe")}/> */
 /* <Button style={styles.botaoC} title="Comprar" onPress={()=> navigation.navigate("Carrinho")}/> */
+
+export default function Home({ navigation }) {
+    return (
+        <View style={styles.container}>
+            <Text>Produto</Text>
+            <Button title="COMPRAR" 
+      onPress={()=> navigation.navigate("Carrinho")} 
+      />
+            <Button title="DETALHE" 
+      onPress={()=> navigation.navigate("Detalhe")} 
+      />
+            
+        </View>
+    )
+}
+
