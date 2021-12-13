@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity, ImageBackground} from 'react-native';
 import { styles } from './Style';
+import { Entypo } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
 
-
-//adicionar fundo a tela de login
+const user = <Entypo name="user" size={24} color="black" />
+const key = <Foundation name="key" size={24} color="black" />
 
 export default function Login({ navigation }) {
 
@@ -54,15 +56,20 @@ export default function Login({ navigation }) {
             <ImageBackground source={{ uri: 'https://i.pinimg.com/564x/0e/c1/dc/0ec1dcc9c5dda39fd76d62fc694dc6a0.jpg'}} style={styles.fundo}>
                 <View style={styles.box}>
                     <Text style={styles.titulo}>Login</Text>
-                    <TextInput
-                        style = {styles.input}
-                        underlineColorAndroid="transparent"
-                        placeholder="Nome"
-                        placeholderTextColor="black"
-                        autoCapitalize="none"
-                        onChangeText = {handleUser}
-                        />
-
+                    <View style={styles.line} />
+                    <View style={{flexDirection:'row'}}>
+                        <Entypo name="user" size={20} color="black" style={{marginTop:19, marginLeft:15}} />
+                        <TextInput
+                            style = {styles.input}
+                            underlineColorAndroid="transparent"
+                            placeholder="Nome"
+                            placeholderTextColor="black"
+                            autoCapitalize="none"
+                            onChangeText = {handleUser}
+                            />
+                    </View>
+                    <View style={{flexDirection:'row'}}>
+                    <Foundation name="key" size={24} color="black" style={{marginTop:19, marginLeft:15}} />
                     <TextInput
                         style = {styles.input}
                         underlineColorAndroid="transparent"
@@ -71,7 +78,7 @@ export default function Login({ navigation }) {
                         autoCapitalize="none"
                         onChangeText = {handlePassword}
                     />
-
+                    </View>
                     
                     <TouchableOpacity
                         style={styles.button}
@@ -79,7 +86,7 @@ export default function Login({ navigation }) {
                         ()=>{
                             Login(logUser, logPassword)}}>
 
-                        <Text style={styles.tituloButton}>Login</Text>
+                        <Text style={styles.tituloButton}>Entrar</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground>
