@@ -16,7 +16,7 @@ export default function Home() {
   
   await axios({
   method: 'GET',
-  url:'https://api-carlosnative.herokuapp.com/produtos',
+  url:'https://api-reactcarlos2.herokuapp.com/produtos',
   responseType: 'json'
 
 }).then(resposta  =>{
