@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import  { useNavigation } from '@react-navigation/native';
 import Shoes from '../../component/Shoes';
+import axios from 'axios';
 
 
 
 export default function Home() {
  const navigation = useNavigation();
+
+ const [itens, setitens] = useState([])
+
+ useEffect(async ()=>{
+  
+  await axios({
+  method: 'GET',
+  url:'https://api-reactcarlos2.herokuapp.com/produtos',
+  responseType: 'json'
+
+}).then(resposta  =>{
+ 
+  console.log("cabo a requisição", resposta.data)
+  setitens(resposta.data)
+
+})
+console.log('cabei a func')
+ 
+},[])
+ 
 
  return (
    <View style={styles.container}>
@@ -34,43 +55,34 @@ export default function Home() {
       <View style={styles.line} />
 
         <ScrollView>
-            <Text style={styles.text}>Novidades na loja</Text>
-
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-
-              <Shoes img={require('../../assets/assasinscreed.jpg')} cost="R$489,98">Assassin's Creed</Shoes>
-              <Shoes img={require('../../assets/Cuphead.png')} cost="R$79,99">CupHead</Shoes>
-                 
-            </View>
-
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-
-              <Shoes img={require('../../assets/cyberpunk.jpg')} cost="R$48,20">Cyberpunk 2077</Shoes>
-              <Shoes img={require('../../assets/darksouls.png')} cost="R$70,00">Dark souls</Shoes>
             
-
+           
+            {
+             itens.map((jogo)=>{
+          return (
+            <View >
+ 
+              <View style={{flexDirection:'row', justifyContent:'space-around'}}>
+               <View style={{margin:20}}>
+                <TouchableOpacity onPress={(()=>{
+                  return console.log("cliquei");
+                })}>
+                    <Image source={{uri:jogo.imagem}} style={{height:200, width:300}}/>
+                </TouchableOpacity>
+                <Text style={styles.text}>{jogo.nome}</Text>    
+                <Text style={styles.text}>R$ {jogo.valor}</Text>
+              </View>
+              </View>
             </View>
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-              <Shoes img={require('../../assets/darksouls2.png')} cost="R$133,99">Dark souls 2</Shoes>
-              <Shoes img={require('../../assets/Fallout4.jpg')} cost="R$40,00">Fallout 4</Shoes>
-            </View>
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-              <Shoes img={require('../../assets/ff.jpg')} cost="R$246,62">Final Fantasy XV</Shoes>
-              <Shoes img={require('../../assets/gow.jpg')} cost="R$ 59,99">God Of War</Shoes>
-            </View>
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-              <Shoes img={require('../../assets/gtav.png')} cost="R$ 39,99">Grand Theft Auto V</Shoes>
-              <Shoes img={require('../../assets/mk.jpg')} cost="R$ 59,99">Mortal Kombat 11</Shoes>
-            </View>
-            <View style={{flexDirection:'row', justifyContent:'space-around'}}>
-              <Shoes img={require('../../assets/witcher.png')} cost="R$ 34,99">The witcher 3</Shoes>
-              <Shoes img={require('../../assets/village.jpg')} cost="R$ 148,80">Resident Evil: Village</Shoes>
-            </View>
-
-        </ScrollView>
-
-
+          )
+        })}
     
+            
+           
+       
+       </ScrollView>
+
+        
 
    </View>
   );
@@ -87,7 +99,7 @@ const styles = StyleSheet.create({
   },
   image:{
     width: '100%',
-    height: 100
+    height: 150,
   },
   textContainer:{
     flexDirection: 'row',
@@ -95,9 +107,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '5%'
   },
   text:{
-    fontFamily: 'Anton_400Regular',
-    fontSize: 20,
-    marginHorizontal: '1%'
+    textAlign:'center'
   },
   line:{
     borderBottomColor: '#D8d8d8',
