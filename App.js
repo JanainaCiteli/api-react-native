@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Categoria from "./src/pages/Categoria/Categoria";
 import Carrinho from "./src/pages/Carrinho/Carrinho";
-import Detalhe from "./src/pages/Detalhe/Detalhe";
+import Detalhe from "./src/pages/Home/Detail/Detalhe";
 import Favoritos from "./src/pages/Favoritos/Favoritos";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -80,10 +80,8 @@ function HomeTab() {
     >
  
       <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
-      <Tab.Screen name="Categoria" component={Categoria} options={{headerShown: false}} />
-      <Tab.Screen name="Favoritos" component={Favoritos} options={{headerShown: false}} />
       <Tab.Screen name="Carrinho" component={Carrinho} options={{headerShown: false}} />
-      <Tab.Screen name="logout" component={Login}/>
+      <Tab.Screen name="logout" component={Login} options={{headerShown: false}}/>
       
     </Tab.Navigator>
   );
