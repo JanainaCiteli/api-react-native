@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Home from "./src/pages/Home/Home";
 import Login from "./src/pages/Login/Login";
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,26 +9,36 @@ import Carrinho from "./src/pages/Carrinho/Carrinho";
 import Favoritos from "./src/pages/Favoritos/Favoritos";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+
+
+
+
 const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="login"
-          options={{ headerShown: false }}
-          component={Login}
-        />
-        <Stack.Screen
-          name="HomeTab"
-          options={{ headerShown: false }}
-          component={HomeTab}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+
+    <>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="login"
+            options={{ headerShown: false }}
+            component={Login}
+          />
+          <Stack.Screen
+            name="HomeTab"
+            options={{ headerShown: false }}
+            component={HomeTab}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+
+     
+    </>
+
   );
 }
 
@@ -62,10 +72,10 @@ function HomeTab() {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Categoria" component={Categoria} />
-      <Tab.Screen name="Favoritos" component={Favoritos} />
-      <Tab.Screen name="Carrinho" component={Carrinho} />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+      <Tab.Screen name="Categoria" component={Categoria} options={{headerShown: false}} />
+      <Tab.Screen name="Favoritos" component={Favoritos} options={{headerShown: false}} />
+      <Tab.Screen name="Carrinho" component={Carrinho} options={{headerShown: false}} />
     </Tab.Navigator>
   );
-}
+};
