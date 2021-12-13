@@ -56,6 +56,8 @@ function HomeTab() {
             iconName = focused ? "cart-outline" : "cart-outline";
           } else if (route.name === "login") {
             iconName = focused ? "person-outline" : "person-outline";
+          }else if (route.name === "logout") {
+            iconName = focused ? "log-out-outline" : "log-out-outline";
           }
 
           // You can return any component that you like here!
@@ -72,6 +74,7 @@ function HomeTab() {
       <Tab.Screen name="Categoria" component={Categoria} />
       <Tab.Screen name="Favoritos" component={Favoritos} />
       <Tab.Screen name="Carrinho" component={Carrinho} />
+      <Tab.Screen name="logout" component={Login} />
       
     </Tab.Navigator>
   );
