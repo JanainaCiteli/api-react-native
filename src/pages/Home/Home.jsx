@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import  { useNavigation } from '@react-navigation/native';
-import Shoes from '../../component/Shoes';
+
 import axios from 'axios';
 
 
