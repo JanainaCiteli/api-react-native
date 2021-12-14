@@ -4,15 +4,9 @@ import Login from "./src/pages/Login/Login";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Categoria from "./src/pages/Categoria/Categoria";
 import Carrinho from "./src/pages/Carrinho/Carrinho";
 import Detalhe from "./src/pages/Home/Detail/Detalhe";
-import Favoritos from "./src/pages/Favoritos/Favoritos";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
-
-
-
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +14,6 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-
 
     <>
       <NavigationContainer>
@@ -67,7 +60,6 @@ function HomeTab() {
           }else if (route.name === "logout") {
             iconName = focused ? "log-out-outline" : "log-out-outline";
           }
-
           
           return <Ionicons name={iconName} size={size} color={color} />;
         },

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 
 
 
-export default function Shoes(props) {
+export default function Game(props) {
 
     function filterDesc(desc){
         if(desc.lenght < 27){
@@ -16,10 +16,10 @@ export default function Shoes(props) {
  return (
 
     <TouchableOpacity style={styles.container}>
-        <Image source={props.img} style={styles.shoesImg}/>
-        <Text style={styles.shoesText}>{filterDesc(props.children)}</Text>
+        <Image source={props.img} style={styles.GameImg}/>
+        <Text style={styles.GameText}>{filterDesc(props.children)}</Text>
         <View opacity={0.4}>
-            <Text style={styles.shoesText}>{props.cost}</Text>
+            <Text style={styles.GameText}>{props.cost}</Text>
         </View>
     </TouchableOpacity>
 
@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
-    shoesImg:{
+    GameImg:{
         width:150,
         height:150
     },
-    shoesText:{
+    GameText:{
         fontSize:16
     }
 });
