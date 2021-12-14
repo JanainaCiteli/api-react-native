@@ -9,11 +9,7 @@ export default function Detalhe({ navigation }) {
 })
     return (
         <ScrollView style={styles.container}>
-            <Image 
-            source={require('../../../assets/darksouls.png')}                     
-            style={styles}
-            resizeMode='cover'
-            />
+           
 
             <View opacity={0.3}>
                 <Text style={styles.title, {fontSize: 24}}>Título</Text>

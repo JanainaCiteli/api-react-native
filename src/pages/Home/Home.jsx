@@ -34,7 +34,7 @@ console.log('cabei a func')
    <View style={styles.container}>
        <View style={styles.header}>
          <Image
-          source={require('../../assets/banner.jpg')}
+          source={{uri:"https://scontent.fsdu1-1.fna.fbcdn.net/v/t39.30808-6/265999034_111414051390462_7763748280094411277_n.jpg?_nc_cat=106&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=qNgVdl8ev-UAX8_IMNs&_nc_ht=scontent.fsdu1-1.fna&oh=00_AT_ajVqi5ALkkMRr0JBxcPaaADENeiA8iqBoliIqkwtmzQ&oe=61BC28B8"}}
           style={styles.image}
          />
 
