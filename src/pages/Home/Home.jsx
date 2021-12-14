@@ -53,7 +53,6 @@ console.log('cabei a func')
             {
              itens.map((jogo)=>{
           return (
-            <View >
  
               <View style={{flexDirection:'row', justifyContent:'space-around'}}>
                <View style={{margin:20}}>
@@ -68,7 +67,7 @@ console.log('cabei a func')
                 
               </View>
               </View>
-            </View>
+            
           )
         })}
     
