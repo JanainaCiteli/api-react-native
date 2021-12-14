@@ -4,10 +4,8 @@ import Login from "./src/pages/Login/Login";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Categoria from "./src/pages/Categoria/Categoria";
 import Carrinho from "./src/pages/Carrinho/Carrinho";
 import Detalhe from "./src/pages/Home/Detail/Detalhe";
-import Favoritos from "./src/pages/Favoritos/Favoritos";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 
@@ -34,11 +32,6 @@ export default function App() {
             name="HomeTab"
             options={{ headerShown: false }}
             component={HomeTab}
-          />
-          <Stack.Screen
-            name="Detalhe"
-            options={{ headerShown: false }}
-            component={Detalhe}
           />
         </Stack.Navigator>
       </NavigationContainer>

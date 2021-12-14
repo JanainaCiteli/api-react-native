@@ -39,23 +39,16 @@ console.log('cabei a func')
          />
 
          <View style={styles.textContainer}>
-            <Text style={styles.text}>Inicio</Text>
-            <Text style={[styles.text, { color: '#CECECF'} ]}>•</Text>
-            <Text style={[styles.text, { color: '#CECECF'} ]}>Jogos</Text>
-            <TouchableOpacity style={{position: 'absolute', right: 0, alignSelf: 'center'}}>
-              <MaterialIcons
-                name="filter-list"
-                size={24}
-                color="#000"
-              />
-            </TouchableOpacity>
+            <Text style={styles.textH}>Inicio</Text>
+            <Text style={[styles.textH, { color: '#CECECF'} ]}>•</Text>
+            <Text style={[styles.textH, { color: '#CECECF'} ]}>Jogos</Text>
          </View>
        </View>
 
       <View style={styles.line} />
 
-        <ScrollView>
-            
+        <ScrollView style={{backgroundColor:'#e6e6e6' }}>
+        <Text style={{fontSize:30, fontWeight:'bold', marginLeft:10,marginTop:10}}>Lançamentos:</Text>    
            
             {
              itens.map((jogo)=>{
@@ -64,13 +57,15 @@ console.log('cabei a func')
  
               <View style={{flexDirection:'row', justifyContent:'space-around'}}>
                <View style={{margin:20}}>
+
                 <TouchableOpacity onPress={(()=>{
                   return console.log("cliquei");
                 })}>
-                    <Image source={{uri:jogo.imagem}} style={{height:200, width:300}}/>
+                    <Image source={{uri:jogo.imagem}} style={{height:175, width:175}}/>
                 </TouchableOpacity>
                 <Text style={styles.text}>{jogo.nome}</Text>    
                 <Text style={styles.text}>R$ {jogo.valor}</Text>
+                
               </View>
               </View>
             </View>
@@ -119,6 +114,11 @@ const styles = StyleSheet.create({
     justifyContent:'flex-end',
     width:15,
     height:20
+  },
+  textH:{
+    fontSize:20,
+    fontWeight:'bold'
+
   }
 });
 
