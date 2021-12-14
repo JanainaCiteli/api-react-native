@@ -121,20 +121,3 @@ const styles = StyleSheet.create({
     height:20
   }
 });
-
-
-// export default function Home({ navigation }) {
-//     return (
-//         <View style={styles.container}>
-//             <Text>Produto</Text>
-//             <Button title="COMPRAR" 
-//       onPress={()=> navigation.navigate("Carrinho")} 
-//       />
-//             <Button title="DETALHE" 
-//       onPress={()=> navigation.navigate("Detalhe")} 
-//       />
-            
-//         </View>
-//     )
-// }
-
