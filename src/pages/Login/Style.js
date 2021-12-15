@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     box: {
       backgroundColor:'#333333',
       width:300,
-      height:300,
+      height:320,
       borderRadius: 5
 
     },
@@ -32,8 +32,7 @@ export const styles = StyleSheet.create({
       textAlign:'center',
       color:'white',
       marginBottom: 30,
-      backgroundColor:'#262626'
-      
+      backgroundColor:'#262626',  
     },
     button:{
       backgroundColor: '#003380',
@@ -44,6 +43,7 @@ export const styles = StyleSheet.create({
       borderRadius:10,
       justifyContent:'center',
       marginTop:10,
+      marginBottom:20
     },
     tituloButton:{
       fontSize: 15,
@@ -64,7 +64,31 @@ export const styles = StyleSheet.create({
       borderBottomWidth: 2,
       marginTop:-30,
       marginBottom: 25
+    },
+    button2:{
+      marginLeft:100,
+      backgroundColor:'#a6a6a6',
+      width:35,
+      height:35,
+      borderRadius:100/2,
+
+      
+
+    },
+    textB:{
+      fontSize:15,
+      color:'white',
+      fontWeight:'bold',
+      textAlign:'center',
+      marginBottom:5
+    },
+    button3:{
+      marginLeft:25,
+      backgroundColor:'#a6a6a6',
+      width:35,
+      height:35,
+      borderRadius:100/2,
+      
     }
-    
 
   });

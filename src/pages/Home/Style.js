@@ -33,5 +33,6 @@ export const styles = StyleSheet.create({
     justifyContent:'flex-end',
     width:15,
     height:20
-  }
+  },
+ 
 });

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity, ImageBackground} from 'react-native';
+import { Text, View, TextInput,KeyboardAvoidingView, TouchableOpacity, ImageBackground, Linking} from 'react-native';
 import { styles } from './Style';
 import { Entypo } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+
 
 const user = <Entypo name="user" size={24} color="black" />
 const key = <Foundation name="key" size={24} color="black" />
@@ -66,8 +68,8 @@ export default function Login({ navigation }) {
                         <TextInput
                             style = {styles.input}
                             underlineColorAndroid="transparent"
-                            placeholder="Nome"
-                            placeholderTextColor="black"
+                            placeholder="  Nome"
+                            placeholderTextColor="gray"
                             autoCapitalize="none"
                             value={logUser}
                             onChangeText = {handleUser}
@@ -78,8 +80,8 @@ export default function Login({ navigation }) {
                     <TextInput
                         style = {styles.input}
                         underlineColorAndroid="transparent"
-                        placeholder="Senha"
-                        placeholderTextColor="black"
+                        placeholder="  Senha"
+                        placeholderTextColor="gray"
                         autoCapitalize="none"
                         value={logPassword}
                         onChangeText = {handlePassword}
@@ -94,9 +96,29 @@ export default function Login({ navigation }) {
 
                         <Text style={styles.tituloButton}>Entrar</Text>
                     </TouchableOpacity>
+
+                    <Text style={styles.textB}>Entre com o</Text>
+                    <View style={{flexDirection:'row'}}>
+                        <TouchableOpacity style={styles.button2} onPress={Link}>
+                            <MaterialIcons name="facebook" size={35} color="black" />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.button3}onPress={Link2}>
+                            <Entypo name="google-" size={30} color="black"style={{alignItems:'center', marginLeft:4, marginTop:3}}/>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </ImageBackground>
         </View>
     
     )
+}
+
+function Link(){
+    Linking.openURL('https://pt-br.facebook.com')
+}
+
+
+function Link2(){
+  Linking.openURL('https://www.google.com/intl/pt/gmail/about/#')  
 }
