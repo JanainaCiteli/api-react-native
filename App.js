@@ -6,7 +6,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Carrinho from "./src/pages/Carrinho/Carrinho";
 import Detalhe from "./src/pages/Home/Detail/Detalhe";
+import Logout from "./src/pages/Logout/Logout.jsx";
 import Ionicons from "react-native-vector-icons/Ionicons";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -42,7 +44,7 @@ export default function App() {
 function HomeTab() {
   return (
     <Tab.Navigator
-      initialRouteName="Login"
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -57,7 +59,7 @@ function HomeTab() {
             iconName = focused ? "cart-outline" : "cart-outline";
           } else if (route.name === "login") {
             iconName = focused ? "person-outline" : "person-outline";
-          }else if (route.name === "logout") {
+          }else if (route.name === "Logout") {
             iconName = focused ? "log-out-outline" : "log-out-outline";
           }
           
@@ -73,7 +75,7 @@ function HomeTab() {
  
       <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
       <Tab.Screen name="Carrinho" component={Carrinho} options={{headerShown: false}} />
-      <Tab.Screen name="logout" component={Login} options={{headerShown: false}}/>
+      <Tab.Screen name="Logout" component={Logout} options={{headerShown: false}}/>
       
     </Tab.Navigator>
   );

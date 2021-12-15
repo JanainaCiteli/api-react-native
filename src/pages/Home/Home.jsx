@@ -29,6 +29,9 @@ console.log('cabei a func')
  
 },[])
  
+  const mudarpagina = ((id)=>{
+    return navigation.navigate("Detalhe" , {itemId : id})
+  })
 
  return (
    <View style={styles.container}>
@@ -65,7 +68,8 @@ console.log('cabei a func')
               <View style={{flexDirection:'row', justifyContent:'space-around'}}>
                <View style={{margin:20}}>
                 <TouchableOpacity onPress={(()=>{
-                  return console.log("cliquei");
+                  return( console.log("cliquei"),
+                  mudarpagina(jogo.id)) 
                 })}>
                     <Image source={{uri:jogo.imagem}} style={{height:200, width:300}}/>
                 </TouchableOpacity>

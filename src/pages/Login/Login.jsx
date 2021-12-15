@@ -17,7 +17,9 @@ export default function Login({ navigation }) {
         { nome: 'jonh', senha: 'pulp', id: 4 },
         { nome: 'travolta', senha: 'fiction', id: 5 },
         { nome: 'admim', senha: 'admin', id: 6 },
-        { nome: 'pedro', senha: 'pedro', id: 7}
+        { nome: 'pedro', senha: 'pedro', id: 7},
+        { nome: 'convidado', senha: '', id: 8},
+
     ]
     )
     const [logPassword, setLogPassword] = useState(null);
@@ -34,14 +36,16 @@ export default function Login({ navigation }) {
         setloged(true)
     }
 
-    function Login (username, password) {
+    function handleLogin (username, password) {
           
        
         mockLogin.map((user) => {
                 if (username == user.nome && password == user.senha) {
                     setLogT()
                     console.log("senha correta");
-                    navigation.navigate("HomeTab")
+                    navigation.navigate("HomeTab");
+                    setLogUser(null);
+                    setLogPassword(null);
                 } else {
                    
                 };
@@ -65,6 +69,7 @@ export default function Login({ navigation }) {
                             placeholder="Nome"
                             placeholderTextColor="black"
                             autoCapitalize="none"
+                            value={logUser}
                             onChangeText = {handleUser}
                             />
                     </View>
@@ -76,6 +81,7 @@ export default function Login({ navigation }) {
                         placeholder="Senha"
                         placeholderTextColor="black"
                         autoCapitalize="none"
+                        value={logPassword}
                         onChangeText = {handlePassword}
                     />
                     </View>
@@ -84,7 +90,7 @@ export default function Login({ navigation }) {
                         style={styles.button}
                         onPress={
                         ()=>{
-                            Login(logUser, logPassword)}}>
+                            handleLogin(logUser, logPassword)}}>
 
                         <Text style={styles.tituloButton}>Entrar</Text>
                     </TouchableOpacity>

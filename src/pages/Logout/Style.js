@@ -17,8 +17,7 @@ export const styles = StyleSheet.create({
         borderRadius:15,
         fontSize:15,
         marginLeft:15,
-        width:230
-      
+        width:400
     },
     box: {
       backgroundColor:'#333333',
@@ -49,7 +48,6 @@ export const styles = StyleSheet.create({
       fontSize: 15,
       color: '#b3e0ff',
       fontWeight: 'bold',
-      textAlign: 'center',
     },
     fundo:{
       flex:1,
