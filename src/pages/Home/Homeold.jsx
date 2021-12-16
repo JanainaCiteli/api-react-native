@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+
 
 import axios from "axios";
 
@@ -52,30 +53,18 @@ export default function Home() {
       </View>
 
       <View style={styles.line} />
-      <Text
-        style={{
-          fontSize: 25,
-          marginLeft: 10,
-          marginTop: 3,
-          fontWeight: "bold",
-          marginBottom: 20,
-        }}
-      >
-        Lançamentos:{" "}
-      </Text>
+      <Text style={{fontSize:25, marginLeft:10, marginTop:3, fontWeight:'bold', marginBottom:20}}>Lançamentos: </Text>
       <ScrollView>
         {itens.map((jogo) => {
           return (
             <View>
               <View>
-                <View
-                  style={{
-                    backgroundColor: "#d9d9d9",
-                    flexDirection: "row",
-                    marginBottom: 20,
-                  }}
-                >
-                   <TouchableOpacity
+                <View style={{backgroundColor: '#d9d9d9', marginBottom:20}}>
+               
+                  <Text style={styles.text1}>{jogo.nome}</Text>
+                  <Text style={styles.text2}>R${jogo.valor}</Text>
+
+                  <TouchableOpacity
                     onPress={() => {
                       return console.log("cliquei"), mudarpagina(jogo.id);
                     }}
@@ -85,25 +74,11 @@ export default function Home() {
                       style={{ height: 220, width: 170, marginBottom:20, marginLeft:15, borderRadius:10 }}
                     />
                   </TouchableOpacity>
-                  <View style={{ flexDirection: "column" }}>
-                    <Text style={styles.text1}>{jogo.nome}</Text>
-                    <Text style={styles.text2}>R${jogo.valor}</Text>                    
-                  <View style={styles.shoppingCart}>
-                  <TouchableOpacity style={{ marginLeft: 10 }}>
-                      <Feather
-                        name="shopping-cart"
-                        size={50}
-                        
-                      />
-                    </TouchableOpacity>
-                  </View>
-                  </View>
-                  
-                  <TouchableOpacity
-                    onPress={() => {
-                      return console.log("cliquei"), mudarpagina(jogo.id);
-                    }}
-                  ></TouchableOpacity>
+                  <TouchableOpacity style={{marginLeft:'75%'}}>
+
+                    <Feather name="shopping-cart" size={50} color="black" />
+
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -133,7 +108,7 @@ const styles = StyleSheet.create({
     marginHorizontal: "5%",
   },
   text: {
-    textAlign: "right",
+    textAlign: "right"
   },
   line: {
     borderBottomColor: "#D8d8d8",
@@ -146,26 +121,20 @@ const styles = StyleSheet.create({
     width: 15,
     height: 20,
   },
-  textHeader: {
-    fontSize: 20,
-    fontWeight: "bold",
+  textHeader:{
+    fontSize:20,
+    fontWeight:'bold'
   },
-  text1: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginLeft: 5,
-    textAlign: "center",
-    marginTop: "30%",
+  text1:{
+    fontSize:20,
+    fontWeight:'bold',
+    marginLeft:'65%'
+    
   },
 
-  text2: {
-    fontSize: 20,
-    textAlign: "center",
-    marginTop: 30,
-  },
-  shoppingCart: {
-    alignSelf:'center',
-    marginTop: 50,
-    color: "black",
-  },
+  text2:{
+    fontSize:15,
+    marginLeft:'68%'
+  }
 });
+
