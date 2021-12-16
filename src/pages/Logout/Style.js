@@ -62,7 +62,16 @@ export const styles = StyleSheet.create({
       borderBottomWidth: 2,
       marginTop:-30,
       marginBottom: 25
-    }
+    },
+    fundoLogout:{
+      flex:1,
+      resizeMode: 'cover',
+      width:'100%',
+      height:'100%',
+      alignItems:'center',
+      justifyContent:'center',
+      
+    },
     
 
   });

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, Image, ScrollView, TouchableOpacity, Button } from 'react-native';
+import { Text, View, Image, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { styles } from './Style';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Detalhe({ navigation, route }) {
 
     // const navigation = useNavigation();
 
     const { itemId } = route.params;
-
 
 
     useEffect(async () => {
@@ -34,14 +34,21 @@ export default function Detalhe({ navigation, route }) {
         <ScrollView >
 
             <View style={styles.container}>
-                <View opacity={0.3}>
-                    <Text style={styles.title, { fontSize: 24 }}>{jogo.imagem}</Text>
+            <ImageBackground source={{ uri: 'https://i.pinimg.com/564x/0e/c1/dc/0ec1dcc9c5dda39fd76d62fc694dc6a0.jpg'}} style={styles.fundoDetalhe}>
+                <View style={{backgroundColor: '#d9d9d9', marginTop:100, height:600}}>
+                    <Text style={styles.tituloNome}>{jogo.nome}</Text>
+                    <Image source={{ uri: jogo.imagem }} style={styles.imagemDetalhe} />
+                    <Text style={styles.precoDetalhe}>R${jogo.valor}</Text>
+                    <View style={{backgroundColor:'#f2f2f2'}}>
+                       
+                        <Text style={styles.title, { fontSize: 20, textAlign:'center'  }}>{jogo.descricao}</Text>
+                    </View>
+                    <TouchableOpacity>
+                        <MaterialIcons name="add-shopping-cart" size={45} color="black" style={{alignSelf:'center', marginTop:25}} />
+                    </TouchableOpacity>
+            
                 </View>
-                <View>
-                    <Text style={styles.title, { fontSize: 20 }}>R$ {jogo.valor}</Text>
-                    <Image source={{ uri: jogo.imagem }} style={{ height: 200, width: 300 }} />
-                    <Text style={styles.title, { fontSize: 20 }}>R$ {jogo.descricao}</Text>
-                </View>
+            </ImageBackground>    
             </View>
 
         </ScrollView>

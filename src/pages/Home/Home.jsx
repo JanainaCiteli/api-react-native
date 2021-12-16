@@ -71,7 +71,7 @@ export default function Home() {
                   >
                     <Image
                       source={{ uri: jogo.imagem }}
-                      style={{ height: 220, width: 170, marginBottom:20, marginLeft:15 }}
+                      style={{ height: 220, width: 170, marginBottom:20, marginLeft:15, borderRadius:10 }}
                     />
                   </TouchableOpacity>
                   <TouchableOpacity style={{marginLeft:'75%'}}>
